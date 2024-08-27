@@ -12,7 +12,6 @@
 <h4>Implementacion moderna con form</h4>
 
 @for (pelicula of peliculas; track $index) {
-
 <div>
   <p>{{$index}} Película: {{ pelicula.titulo | uppercase}} </p>
   <p>Fecha lanzamiento: {{pelicula.fechaLanzamiento | date:"dd-MMMM-yyyy" }}</p>
