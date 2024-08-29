@@ -16,8 +16,8 @@
 <div class="contenedor-pelicula">
   <div style="display: flex; flex-direction: row; gap: 10px;">
     <div>
-      <img [ngSrc]="pelicula.poster" priority width="169" height="250">
-    </div> 
+      <img [ngSrc]="pelicula.poster" priority="$index===0" width="169" height="250">
+    </div>
     <div>
       <p>{{$index}} Película: {{ pelicula.titulo | uppercase}} </p>
       <p>Fecha lanzamiento: {{pelicula.fechaLanzamiento | date:"dd-MMMM-yyyy" }}</p>
