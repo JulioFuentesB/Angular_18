@@ -1,21 +1,31 @@
 <p>Pruebas 2</p>
 
-<h4>Implementacion clasica con * ngForm</h4>
+<!-- <h4>Implementacion clasica con * ngForm</h4>
+
 
 
 <div *ngFor="let pelicula of peliculas let indice = index">
   <p>{{indice}} Película: {{ pelicula.titulo | uppercase}} </p>
   <p>Fecha lanzamiento: {{pelicula.fechaLanzamiento | date:"dd-MMMM-yyyy" }}</p>
   <p>Precio: {{pelicula.precio | currency }}</p>
-</div>
+</div> -->
 
 <h4>Implementacion moderna con form</h4>
 
 @for (pelicula of peliculas; track $index) {
-<div>
-  <p>{{$index}} Película: {{ pelicula.titulo | uppercase}} </p>
-  <p>Fecha lanzamiento: {{pelicula.fechaLanzamiento | date:"dd-MMMM-yyyy" }}</p>
-  <p>Precio: {{pelicula.precio | currency }}</p>
+<div class="contenedor-pelicula">
+  <div style="display: flex; flex-direction: row; gap: 10px;">
+    <div>
+      <img [ngSrc]="pelicula.poster" priority width="169" height="250">
+    </div> 
+    <div>
+      <p>{{$index}} Película: {{ pelicula.titulo | uppercase}} </p>
+      <p>Fecha lanzamiento: {{pelicula.fechaLanzamiento | date:"dd-MMMM-yyyy" }}</p>
+      <p>Precio: {{pelicula.precio | currency }}</p>
+
+    </div>
+  </div>
+
 </div>
 
 }
