@@ -28,6 +28,7 @@ export class AppComponent implements OnInit {
     return valor * 2;
 
   }
+  
 
   DevolverPeliculas(): any {
     return [{
