@@ -1,0 +1,31 @@
+<!--Nueva forma-->
+@if (!peliculas ) {
+
+<img src="loading.gif" />
+
+}
+@else if (peliculas.length===0) {
+<p>No hay peliculas para mostrar</p>
+}
+@else if (peliculas && peliculas.length > 0){
+@for (pelicula of peliculas; track $index) {
+<div class="contenedor-pelicula">
+    <div style="display: flex; flex-direction: row; gap: 10px;">
+        <div>
+            <img [ngSrc]="pelicula.poster" priority="$index===0" width="169" height="250">
+        </div>
+        <div>
+            <p>{{$index}} Película: {{ pelicula.titulo | uppercase}} </p>
+            <p>Fecha lanzamiento: {{pelicula.fechaLanzamiento | date:"dd-MMMM-yyyy" }}</p>
+            <p>Precio: {{pelicula.precio | currency }}</p>
+
+        </div>
+    </div>
+
+</div>
+
+}
+}
+@else {
+
+}
