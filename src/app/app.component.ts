@@ -1,4 +1,4 @@
-import { CurrencyPipe, DatePipe, NgFor, NgOptimizedImage, UpperCasePipe } from '@angular/common';
+import { CurrencyPipe, DatePipe, NgFor, NgIf, NgOptimizedImage, UpperCasePipe } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 //import { AppComponent } from './app/app.component'
@@ -6,7 +6,7 @@ import { RouterOutlet } from '@angular/router';
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [DatePipe, UpperCasePipe, CurrencyPipe, NgFor, NgOptimizedImage],
+  imports: [DatePipe, UpperCasePipe, CurrencyPipe, NgFor, NgOptimizedImage,NgIf],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
@@ -68,5 +68,5 @@ export class AppComponent implements OnInit {
       poster: 'https://upload.wikimedia.org/wikipedia/en/thumb/e/ed/The_Flash_%28film%29_poster.jpg/220px-The_Flash_%28film%29_poster.jpg'
     }];
   }
-//pruebas
+//prueba
 }
