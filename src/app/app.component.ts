@@ -2,12 +2,13 @@ import { CurrencyPipe, DatePipe, NgFor, NgIf, NgOptimizedImage, UpperCasePipe } 
 import { Component, OnInit } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { LisadoPeliculasComponent } from './peliculas/lisado-peliculas/lisado-peliculas.component';
+import { MenuComponent } from "./compartidos/componentes/menu/menu.component";
 //import { AppComponent } from './app/app.component'
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [LisadoPeliculasComponent],
+  imports: [LisadoPeliculasComponent, MenuComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
