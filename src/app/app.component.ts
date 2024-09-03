@@ -16,7 +16,7 @@ export class AppComponent implements OnInit {
 
     setTimeout(() => {
 
-      this.peliculasEnCines =  [{
+      this.peliculasEnCines = [{
         titulo: 'Inside Out 2',
         fechaLanzamiento: new Date(),
         precio: 1400.99,
@@ -53,7 +53,7 @@ export class AppComponent implements OnInit {
         poster: 'https://upload.wikimedia.org/wikipedia/en/thumb/e/ed/The_Flash_%28film%29_poster.jpg/220px-The_Flash_%28film%29_poster.jpg'
       }];
 
-      this.peliculasProximosEstrenos =  [{
+      this.peliculasProximosEstrenos = [{
         titulo: 'Inside Out 2',
         fechaLanzamiento: new Date(),
         precio: 1400.99,
@@ -92,21 +92,17 @@ export class AppComponent implements OnInit {
 
     }, 2000);
   }
-  
 
-peliculasEnCines!: any[];
-peliculasProximosEstrenos!: any[];
+
+  peliculasEnCines!: any[];
+  peliculasProximosEstrenos!: any[];
 
   title = 'mi-aplicacion-angular';
 
 
-
-  // dubplicarNumero(valor: number): number {
-  //   return valor * 2;
-
-  // }
-
-
-
-//prueba
+  ClickBoton()
+  {
+    alert('me has clickeado');
+  }
+  
 }
