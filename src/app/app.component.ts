@@ -3,12 +3,13 @@ import { Component, OnInit } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { LisadoPeliculasComponent } from './peliculas/lisado-peliculas/lisado-peliculas.component';
 import { MenuComponent } from "./compartidos/componentes/menu/menu.component";
+import { RatingComponent } from "./compartidos/componentes/rating/rating.component";
 //import { AppComponent } from './app/app.component'
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [LisadoPeliculasComponent, MenuComponent],
+  imports: [LisadoPeliculasComponent, MenuComponent, RatingComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
