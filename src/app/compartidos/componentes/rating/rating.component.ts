@@ -17,8 +17,8 @@ export class RatingComponent {
   @Input()
   ratingSeleccionado = 0;
 
- // @Output()
-  //votado = new EventEmitter<number>();
+  @Output()
+  votado = new EventEmitter<number>();
 
   ratingAnterior = 0;
 
@@ -37,7 +37,7 @@ export class RatingComponent {
   manejarClick(indice: number){
     this.ratingSeleccionado = indice + 1;
     this.ratingAnterior = this.ratingSeleccionado;
-    //this.votado.emit(this.ratingSeleccionado);
+    this.votado.emit(this.ratingSeleccionado);
   }
 
 }

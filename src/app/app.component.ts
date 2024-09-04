@@ -4,6 +4,7 @@ import { RouterOutlet } from '@angular/router';
 import { LisadoPeliculasComponent } from './peliculas/lisado-peliculas/lisado-peliculas.component';
 import { MenuComponent } from "./compartidos/componentes/menu/menu.component";
 import { RatingComponent } from "./compartidos/componentes/rating/rating.component";
+import { addModuleImportToRootModule } from '@angular/cdk/schematics';
 //import { AppComponent } from './app/app.component'
 
 @Component({
@@ -17,7 +18,6 @@ export class AppComponent implements OnInit {
   ngOnInit(): void {
 
     setTimeout(() => {
-
       this.peliculasEnCines = [{
         titulo: 'Inside Out 2',
         fechaLanzamiento: new Date(),
@@ -54,7 +54,6 @@ export class AppComponent implements OnInit {
         precio: 300.99,
         poster: 'https://upload.wikimedia.org/wikipedia/en/thumb/e/ed/The_Flash_%28film%29_poster.jpg/220px-The_Flash_%28film%29_poster.jpg'
       }];
-
       this.peliculasProximosEstrenos = [{
         titulo: 'Inside Out 2',
         fechaLanzamiento: new Date(),
@@ -91,7 +90,6 @@ export class AppComponent implements OnInit {
         precio: 300.99,
         poster: 'https://upload.wikimedia.org/wikipedia/en/thumb/e/ed/The_Flash_%28film%29_poster.jpg/220px-The_Flash_%28film%29_poster.jpg'
       }];
-
     }, 100);
   }
 
@@ -100,7 +98,12 @@ export class AppComponent implements OnInit {
   peliculasProximosEstrenos!: any[];
 
   title = 'mi-aplicacion-angular';
+  cargando = true;
 
+  procesarVoto(voto:number)
+  {
+    alert(`Calificaion otorgada: ${voto}`)
+  }
 
   ClickBoton()
   {
