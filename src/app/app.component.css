@@ -4,3 +4,8 @@
  margin-bottom: 1rem;
  padding: 1rem;
 }
+
+.contenedor{
+    margin: 0 100px;
+    padding-bottom: 100px;
+}
