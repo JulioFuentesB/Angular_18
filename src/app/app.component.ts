@@ -98,7 +98,7 @@ export class AppComponent implements OnInit {
   peliculasProximosEstrenos!: any[];
 
   title = 'mi-aplicacion-angular';
-  cargando = true;
+
 
   procesarVoto(voto:number)
   {

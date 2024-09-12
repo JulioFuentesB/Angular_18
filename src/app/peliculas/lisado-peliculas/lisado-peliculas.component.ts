@@ -18,24 +18,5 @@ export class LisadoPeliculasComponent {
   peliculas!: any[]
 
 
-  agregarPelicula() {
-    this.peliculas.push({
-      titulo: 'Inception',
-      fechaLanzamiento: new Date(),
-      precio: 1400.99,
-
-    })
-  }
-
-
-  remover(pelicula: any) {
-
-    const indice = this.peliculas.findIndex(
-      (peliculasActual: any) => peliculasActual.titulo === pelicula.titulo
-    );
-
-    this.peliculas.splice(indice,1);
-
-  }
 
 }
