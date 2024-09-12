@@ -8,10 +8,5 @@
 
 <div class="contenedor">
 
-    <app-rating [maximoRating]="5" (votado)="procesarVoto($event)"></app-rating>
-    <h2>En cienes</h2>
-    <app-lisado-peliculas [peliculas]="peliculasEnCines"></app-lisado-peliculas>
-
-    <h2>Proximos extrenos</h2>
-    <app-lisado-peliculas [peliculas]="peliculasProximosEstrenos"></app-lisado-peliculas>
+    <router-outlet></router-outlet>
 </div>
