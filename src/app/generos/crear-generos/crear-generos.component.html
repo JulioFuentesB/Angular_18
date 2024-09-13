@@ -1,17 +1,5 @@
 <h2>Crear Genero</h2>
 
-<form (submit)="guardarCambios()" [formGroup]="form">
-    <mat-form-field appearance="outline">
-        <mat-label>Nombre</mat-label>
-        <input matInput [formControl]="form.controls.nombre">
-        <mat-error>{{obtenerErrorCampoNombre() }}</mat-error>
-    </mat-form-field> 
-    <div class="contenedor-botones">
-        <button mat-flat-button type="button" (click)="guardarCambios()"
-        [disabled]="form.invalid"
-        >Guardar cambios</button>
-    <a mat-stroked-button routerLink="/generos">Cancelar</a>
-    </div>
-</form>
+<app-formulario-genero (posteoFormulario)="guardarCambios($event)" ></app-formulario-genero>
 
 
