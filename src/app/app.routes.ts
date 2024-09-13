@@ -22,6 +22,7 @@ export const routes: Routes = [
     {path:'cines', component:IndiceCinesComponent},
     {path:'cines/crear',component:CrearCineComponent},
     {path:'cines/editar/:id',component:EditarCinesComponent},
-    {path:'peliculas/crear', component:CrearPeliculaComponent}
+    {path:'peliculas/crear', component:CrearPeliculaComponent},
+    {path:'**', redirectTo:''}//atrapalo todo  un componente no enconrado
 
 ];
