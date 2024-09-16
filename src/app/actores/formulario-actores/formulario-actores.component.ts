@@ -7,6 +7,8 @@ import { MatInput, MatInputModule } from '@angular/material/input';
 import { RouterLink } from '@angular/router';
 import { ActorCreacionDto, ActorDto } from '../actores';
 import moment from 'moment';
+import { fechaNoPuedeSerFutura } from '../../compartidos/componentes/Funciones/validaciones';
+import { createSourceMapSource } from 'typescript';
 
 @Component({
   selector: 'app-formulario-actores',
@@ -33,11 +35,44 @@ export class FormularioActoresComponent implements OnInit {
   form = this.formBuilder.group({
 
     nombre: ['', {
-      Validator: [Validators.required]
+      validators: [Validators.required]
     }],
-    fechaNacimient: new FormControl<Date | null>(null)
+    
+    fechaNacimient: new FormControl<Date | null>(null, {
 
-  })
+      validators: [Validators.required, fechaNoPuedeSerFutura()]
+    })
+
+  });
+
+  obtenerErrorCampoNombre(): string {
+    let nombre = this.form.controls.nombre;
+
+    if (nombre.hasError('required')) {
+      return "El campo nombre es requerido";
+    }
+
+    if (nombre.hasError('primeraLetraMayuscula')) {
+      return nombre.getError('primeraLetraMayuscula').mensaje;
+    }
+
+    return "";
+
+  }
+
+
+  obtenerErrorCmpoFchaNacimiento() {
+    let campo = this.form.controls.fechaNacimient;
+
+    if (campo.hasError('required')) {
+      return "El campo fecha es requerido";
+    }
+    if (campo.hasError('futuro')) {
+      return campo.getError('futuro').mensaje;
+    }
+
+    return "";
+  }
 
 
   guardarCambios() {

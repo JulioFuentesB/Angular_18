@@ -1,4 +1,4 @@
-import { AbstractControl,  ValidationErrors, ValidatorFn } from "@angular/forms";
+import { AbstractControl, ValidationErrors, ValidatorFn } from "@angular/forms";
 
 export function PrimeraLetramayuscula(): ValidatorFn {
     return (Control: AbstractControl): ValidationErrors | null => {
@@ -20,4 +20,22 @@ export function PrimeraLetramayuscula(): ValidatorFn {
 
 
     }
+}
+
+export function fechaNoPuedeSerFutura(): ValidatorFn {
+    return (Control: AbstractControl): ValidationErrors | null => {
+        const fechaEscogidaPorElUsuario = new Date(Control.value);
+        const hoy = new Date();
+
+        if (fechaEscogidaPorElUsuario > hoy) {
+            return {
+
+                futuro: {
+                    mensaje: 'La fecha no puede ser del futuro'
+                }
+            }
+        }
+        return null;
+    }
+
 }
