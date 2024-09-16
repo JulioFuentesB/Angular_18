@@ -29,10 +29,9 @@ modelo?: GeneroDto;
 @Output()
 posteoFormulario= new EventEmitter<GenerosCreacionDto>
 
-  private fromBuilder = inject(FormBuilder);
+  private formBuilder = inject(FormBuilder);
 
-  form = this.fromBuilder.group({
-
+  form = this.formBuilder.group({
     nombre: ['', { validators: [Validators.required, PrimeraLetramayuscula()] }]
   });
 
