@@ -1,7 +1,7 @@
 import { Component, Input, input, numberAttribute } from '@angular/core';
 import { transform } from 'typescript';
-import { ActorCreacionDto, ActorDto } from '../../actores/actores';
-import { FormularioActoresComponent } from "../../actores/formulario-actores/formulario-actores.component";
+import { ActorCreacionDto, ActorDto } from '../actores';
+import { FormularioActoresComponent } from "../formulario-actores/formulario-actores.component";
 
 @Component({
   selector: 'app-editar-actor',
@@ -15,7 +15,7 @@ export class EditarActorComponent {
   id!: number;
 
 
-  actor: ActorDto = { id: 1, nombre: 'Tom Holland', fechaNacimiento: new Date('1991-01-25') }
+  actor: ActorDto = {id: 1, nombre: 'Tom Holland', fechaNacimiento: new Date('1991-01-25'), foto: 'https://upload.wikimedia.org/wikipedia/commons/thumb/3/3c/Tom_Holland_by_Gage_Skidmore.jpg/220px-Tom_Holland_by_Gage_Skidmore.jpg'}
 
   guardarCambios(actor: ActorCreacionDto) {
     console.log('Editando el actor', actor);

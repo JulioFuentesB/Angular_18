@@ -8,7 +8,7 @@ import { IndiceCinesComponent } from './cines/indice-cines/indice-cines.componen
 import { CrearCineComponent } from './cines/crear-cine/crear-cine.component';
 import { CrearPeliculaComponent } from './peliculas/crear-pelicula/crear-pelicula.component';
 import { EditarGenerosComponent } from './generos/editar-generos/editar-generos.component';
-import { EditarActorComponent } from './actor/editar-actor/editar-actor.component';
+import { EditarActorComponent } from './actores/editar-actor/editar-actor.component';
 import { EditarCinesComponent } from './cines/editar-cines/editar-cines.component';
 
 export const routes: Routes = [

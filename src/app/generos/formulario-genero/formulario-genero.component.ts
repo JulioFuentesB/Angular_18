@@ -6,11 +6,12 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { RouterLink } from '@angular/router';
 import { GeneroDto, GenerosCreacionDto } from '../generos';
+import { InputImgComponent } from "../../compartidos/componentes/input-img/input-img.component";
 
 @Component({
   selector: 'app-formulario-genero',
   standalone: true,
-  imports: [MatButtonModule, RouterLink, MatFormFieldModule, ReactiveFormsModule, MatInputModule],
+  imports: [MatButtonModule, RouterLink, MatFormFieldModule, ReactiveFormsModule, MatInputModule, InputImgComponent],
   templateUrl: './formulario-genero.component.html',
   styleUrl: './formulario-genero.component.css'
 })

@@ -9,11 +9,12 @@ import { ActorCreacionDto, ActorDto } from '../actores';
 import moment from 'moment';
 import { fechaNoPuedeSerFutura } from '../../compartidos/componentes/Funciones/validaciones';
 import { createSourceMapSource } from 'typescript';
+import { InputImgComponent } from "../../compartidos/componentes/input-img/input-img.component";
 
 @Component({
   selector: 'app-formulario-actores',
   standalone: true,
-  imports: [MatButtonModule, RouterLink, MatFormFieldModule, ReactiveFormsModule, MatInputModule, MatDatepickerModule],
+  imports: [MatButtonModule, RouterLink, MatFormFieldModule, ReactiveFormsModule, MatInputModule, MatDatepickerModule, InputImgComponent],
   templateUrl: './formulario-actores.component.html',
   styleUrl: './formulario-actores.component.css'
 })
@@ -37,11 +38,13 @@ export class FormularioActoresComponent implements OnInit {
     nombre: ['', {
       validators: [Validators.required]
     }],
-    
-    fechaNacimient: new FormControl<Date | null>(null, {
+
+    fechaNacimiento: new FormControl<Date | null>(null, {
 
       validators: [Validators.required, fechaNoPuedeSerFutura()]
-    })
+    }),
+
+    foto: new FormControl<File | string | null>(null)
 
   });
 
@@ -62,7 +65,7 @@ export class FormularioActoresComponent implements OnInit {
 
 
   obtenerErrorCmpoFchaNacimiento() {
-    let campo = this.form.controls.fechaNacimient;
+    let campo = this.form.controls.fechaNacimiento;
 
     if (campo.hasError('required')) {
       return "El campo fecha es requerido";
@@ -74,6 +77,9 @@ export class FormularioActoresComponent implements OnInit {
     return "";
   }
 
+  archivoSeleccionado(file: File) {
+    this.form.controls.foto.setValue(file);
+  }
 
   guardarCambios() {
     if (!this.form.valid) {
@@ -82,6 +88,11 @@ export class FormularioActoresComponent implements OnInit {
 
     const actor = this.form.value as ActorCreacionDto;
     actor.fechaNacimiento = moment(actor.fechaNacimiento).toDate();
+
+    if (typeof actor.foto === "string") {
+      actor.foto = undefined;
+    }
+
     this.posteoFormulario.emit(actor);
 
   }
