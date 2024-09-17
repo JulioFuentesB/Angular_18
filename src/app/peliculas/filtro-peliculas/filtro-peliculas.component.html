@@ -28,7 +28,9 @@
     </div>
 
     <div>
-        <button mat-flat-button color="warn" >Limpiar</button>
+        <button mat-flat-button color="warn" (click)="limpiar()" >Limpiar</button>
     </div>
 
 </form>
+
+<app-lisado-peliculas [peliculas]="peliculas" ></app-lisado-peliculas>
