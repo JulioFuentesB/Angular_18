@@ -1,8 +1,6 @@
-export interface filtroPeliculaDto {
-
+export interface FiltroPeliculas {
     titulo: string;
     generoId: number;
-    proximosExtrenos: boolean;
+    proximosEstrenos: boolean;
     enCines: boolean;
-
 }
