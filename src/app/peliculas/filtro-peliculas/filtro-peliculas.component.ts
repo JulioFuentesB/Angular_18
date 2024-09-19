@@ -7,8 +7,6 @@ import { MatInputModule } from '@angular/material/input';
 import { MatSelectModule } from '@angular/material/select';
 import { LisadoPeliculasComponent } from "../lisado-peliculas/lisado-peliculas.component";
 
-
-
 import {Location} from '@angular/common'
 import { ActivatedRoute } from '@angular/router';
 import { FiltroPeliculas } from './filtroPeliculas';
@@ -57,7 +55,6 @@ export class FiltroPeliculasComponent implements OnInit {
     }
 
   }
-
 
   escribirParametrosBusquedaEnURL(valores: FiltroPeliculas) {
     let queryStrings = [];

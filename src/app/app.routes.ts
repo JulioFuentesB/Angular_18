@@ -11,6 +11,7 @@ import { EditarGenerosComponent } from './generos/editar-generos/editar-generos.
 import { EditarActorComponent } from './actores/editar-actor/editar-actor.component';
 import { EditarCinesComponent } from './cines/editar-cines/editar-cines.component';
 import { FiltroPeliculasComponent } from './peliculas/filtro-peliculas/filtro-peliculas.component';
+import { EditarPeliculasComponent } from './peliculas/editar-peliculas/editar-peliculas.component';
 
 export const routes: Routes = [
     { path: '', component: LandingPageComponent },
@@ -24,6 +25,7 @@ export const routes: Routes = [
     {path:'cines/crear',component:CrearCineComponent},
     {path:'cines/editar/:id',component:EditarCinesComponent},
     {path:'peliculas/crear', component:CrearPeliculaComponent},
+    {path:'peliculas/editar/:id', component:EditarPeliculasComponent},
     {path:'peliculas/filtrar', component:FiltroPeliculasComponent},
     {path:'**', redirectTo:''}//atrapalo todo  un componente no enconrado
 
