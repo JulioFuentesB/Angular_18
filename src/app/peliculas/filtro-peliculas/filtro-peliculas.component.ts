@@ -36,6 +36,7 @@ export class FiltroPeliculasComponent implements OnInit {
     if (valores.generoId !== 0) {
 
       this.peliculas = this.peliculas.filter(pelicula => pelicula.generos.indexOf(valores.generoId) !== -1)
+      
     }
 
     if (valores.proximosExtrenos) {
