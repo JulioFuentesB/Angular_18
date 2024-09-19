@@ -2,6 +2,7 @@ import { Component, Input, numberAttribute, OnInit } from '@angular/core';
 import { peliculaCreacionDto, peliculaDto } from '../peliculas';
 import { idText } from 'typescript';
 import { FormularioPeliculasComponent } from "../formulario-peliculas/formulario-peliculas.component";
+import { SelectorMultipleDto } from '../../compartidos/compnentes/SelectorMultipleModelo';
 
 @Component({
   selector: 'app-editar-peliculas',
@@ -19,6 +20,15 @@ export class EditarPeliculasComponent implements OnInit {
 
   @Input({ transform: numberAttribute })
   id!: number;
+
+  generosSeleccionados: SelectorMultipleDto[] = [
+    { llave: 1, valor: 'Drama' }
+  ];
+  generosNoSeleccionados: SelectorMultipleDto[] = [
+    { llave: 2, valor: 'Accion' },
+    { llave: 3, valor: 'Comedia' },
+
+  ];
 
   pelicula: peliculaDto = { id: 1, titulo: 'Spider-man', trailer: 'Abc', fechaLanzamiento: new Date('2024-07-25'), poster: 'https://upload.wikimedia.org/wikipedia/en/f/f7/Inside_Out_2_poster.jpg?20240514232832' }
 

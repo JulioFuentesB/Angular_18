@@ -8,11 +8,13 @@ import { RouterLink } from '@angular/router';
 import { InputImgComponent } from '../../compartidos/componentes/input-img/input-img.component';
 import { peliculaCreacionDto, peliculaDto } from '../peliculas';
 import moment from 'moment';
+import { SelectorMultipleDto } from '../../compartidos/compnentes/SelectorMultipleModelo';
+import { SelectorMultipleComponent } from "../../compartidos/compnentes/selector-multiple/selector-multiple.component";
 
 @Component({
   selector: 'app-formulario-peliculas',
   standalone: true,
-  imports: [MatFormFieldModule, ReactiveFormsModule, MatInputModule, MatButtonModule, RouterLink, MatDatepickerModule, InputImgComponent],
+  imports: [MatFormFieldModule, ReactiveFormsModule, MatInputModule, MatButtonModule, RouterLink, MatDatepickerModule, InputImgComponent, SelectorMultipleComponent],
   templateUrl: './formulario-peliculas.component.html',
   styleUrl: './formulario-peliculas.component.css'
 })
@@ -25,6 +27,12 @@ export class FormularioPeliculasComponent implements OnInit {
     }
 
   }
+
+  @Input({ required: true })
+  generosNoSeleccionados!: SelectorMultipleDto[];
+
+  @Input({ required: true })
+  generosSeleccionados!: SelectorMultipleDto[];
 
   @Input()
   modelo?: peliculaDto;
@@ -42,11 +50,9 @@ export class FormularioPeliculasComponent implements OnInit {
 
   });
 
-
   archivoSeleccionado(file: File) {
     this.form.controls.poster.setValue(file);
   }
-
 
   guardarCambios() {
 
@@ -57,15 +63,17 @@ export class FormularioPeliculasComponent implements OnInit {
 
     const pelicula = this.form.value as peliculaCreacionDto;
     pelicula.fechaLanzamiento = moment(pelicula.fechaLanzamiento).toDate();
+    const generosId = this.generosSeleccionados.map(val => val.llave);
+    pelicula.generosIds = generosId;
+
     this.posteoFormulario.emit(pelicula);
   }
 
-  obtenerErrorCampoTitulo(): string{
+  obtenerErrorCampoTitulo(): string {
 
     let campo = this.form.controls.titulo;
 
-    if(campo.hasError('required'))
-    {
+    if (campo.hasError('required')) {
 
       return 'El campo nombre es requerido';
     }
@@ -73,13 +81,11 @@ export class FormularioPeliculasComponent implements OnInit {
     return '';
   }
 
-
-  obtenerErrorCampoFechalanzamiento(): string{
+  obtenerErrorCampoFechalanzamiento(): string {
 
     let campo = this.form.controls.fechaLanzamiento;
 
-    if(campo.hasError('required'))
-    {
+    if (campo.hasError('required')) {
 
       return 'El campo fecha Lanzamiento es requerido';
     }
