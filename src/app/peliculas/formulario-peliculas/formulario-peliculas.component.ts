@@ -10,11 +10,12 @@ import { peliculaCreacionDto, peliculaDto } from '../peliculas';
 import moment from 'moment';
 import { SelectorMultipleDto } from '../../compartidos/compnentes/SelectorMultipleModelo';
 import { SelectorMultipleComponent } from "../../compartidos/compnentes/selector-multiple/selector-multiple.component";
+import { AutocompleteActoresComponent } from "../../actores/autocomplete-actores/autocomplete-actores.component";
 
 @Component({
   selector: 'app-formulario-peliculas',
   standalone: true,
-  imports: [MatFormFieldModule, ReactiveFormsModule, MatInputModule, MatButtonModule, RouterLink, MatDatepickerModule, InputImgComponent, SelectorMultipleComponent],
+  imports: [MatFormFieldModule, ReactiveFormsModule, MatInputModule, MatButtonModule, RouterLink, MatDatepickerModule, InputImgComponent, SelectorMultipleComponent, AutocompleteActoresComponent],
   templateUrl: './formulario-peliculas.component.html',
   styleUrl: './formulario-peliculas.component.css'
 })
@@ -73,7 +74,7 @@ export class FormularioPeliculasComponent implements OnInit {
 
     const generosId = this.generosSeleccionados.map(val => val.llave);
     pelicula.generosIds = generosId;
-    
+
     const cinesIds= this.cinesSeleccionados.map(val=>val.llave);
     pelicula.cinesIds=cinesIds;
 
