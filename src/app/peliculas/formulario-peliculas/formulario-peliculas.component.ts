@@ -34,6 +34,13 @@ export class FormularioPeliculasComponent implements OnInit {
   @Input({ required: true })
   generosSeleccionados!: SelectorMultipleDto[];
 
+
+  @Input({ required: true })
+  cinesNoSeleccionados!: SelectorMultipleDto[];
+
+  @Input({ required: true })
+  cinesSeleccionados!: SelectorMultipleDto[];
+
   @Input()
   modelo?: peliculaDto;
 
@@ -63,8 +70,12 @@ export class FormularioPeliculasComponent implements OnInit {
 
     const pelicula = this.form.value as peliculaCreacionDto;
     pelicula.fechaLanzamiento = moment(pelicula.fechaLanzamiento).toDate();
+
     const generosId = this.generosSeleccionados.map(val => val.llave);
     pelicula.generosIds = generosId;
+    
+    const cinesIds= this.cinesSeleccionados.map(val=>val.llave);
+    pelicula.cinesIds=cinesIds;
 
     this.posteoFormulario.emit(pelicula);
   }

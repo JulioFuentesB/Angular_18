@@ -27,7 +27,16 @@ export class EditarPeliculasComponent implements OnInit {
   generosNoSeleccionados: SelectorMultipleDto[] = [
     { llave: 2, valor: 'Accion' },
     { llave: 3, valor: 'Comedia' },
+  ];
 
+
+  cinesSeleccionados: SelectorMultipleDto[] = [
+    { llave: 1, valor: 'Agora mall' },
+  ];
+  cinesNoSeleccionados: SelectorMultipleDto[] = [
+
+    { llave: 2, valor: 'Blue mall' },
+    { llave: 3, valor: 'Acropolis' },
   ];
 
   pelicula: peliculaDto = { id: 1, titulo: 'Spider-man', trailer: 'Abc', fechaLanzamiento: new Date('2024-07-25'), poster: 'https://upload.wikimedia.org/wikipedia/en/f/f7/Inside_Out_2_poster.jpg?20240514232832' }

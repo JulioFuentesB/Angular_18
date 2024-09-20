@@ -14,5 +14,6 @@ export interface peliculaCreacionDto
   fechaLanzamiento:Date;
   trailer:string;
   poster?:File;
-  generosIds: number[];
+  generosIds?: number[];
+  cinesIds?: number[];
 }

@@ -23,6 +23,14 @@ export class CrearPeliculaComponent {
 
   ];
 
+  cinesSeleccionados: SelectorMultipleDto[] = [];
+  cinesNoSeleccionados: SelectorMultipleDto[] = [
+    { llave: 1, valor: 'Agora mall' },
+    { llave: 2, valor: 'Blue mall' },
+    { llave: 3, valor: 'Acropolis' },
+
+  ];
+
   guardarCambios(pelicula: peliculaCreacionDto) {
     console.log('Creando pelicula', pelicula);
   }
