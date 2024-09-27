@@ -16,7 +16,9 @@
 
 @if (actoresSeleccionados.length >0) {
 
-    <table mat-table [dataSource]="actoresSeleccionados" class="mat-elevation-z8">
+    <table mat-table [dataSource]="actoresSeleccionados" class="mat-elevation-z8" cdkDropList [cdkDropListData]="actoresSeleccionados"
+    (cdkDropListDropped)="finalizarArrastre($event)"
+    >
 
     <ng-container matColumnDef="imagen">
             <td mat-cell *matCellDef="let actor">

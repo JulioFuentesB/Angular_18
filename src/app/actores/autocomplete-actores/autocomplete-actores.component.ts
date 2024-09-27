@@ -1,4 +1,4 @@
-import { DragDropModule } from '@angular/cdk/drag-drop';
+import { CdkDragDrop, DragDropModule, moveItemInArray } from '@angular/cdk/drag-drop';
 import { Component, ViewChild } from '@angular/core';
 import { ReactiveFormsModule, FormsModule, FormControl } from '@angular/forms';
 import { MatAutocompleteModule, MatAutocompleteSelectedEvent } from '@angular/material/autocomplete';
@@ -35,14 +35,18 @@ export class AutocompleteActoresComponent {
   @ViewChild(MatTable) table!: MatTable<actorAutoCompleteDto>;
 
   actorSeleccionado(event: MatAutocompleteSelectedEvent) {
-
     this.actoresSeleccionados.push(event.option.value);
     this.control.patchValue('');
-    if (this.table !== undefined) {
+
+    if (this.table != undefined) {
       this.table.renderRows();
-
     }
+  }
 
+  finalizarArrastre(event: CdkDragDrop<any[]>){
+    const indicePrevio = this.actoresSeleccionados.findIndex(actor => actor === event.item.data);
+    moveItemInArray(this.actoresSeleccionados, indicePrevio, event.currentIndex);
+    this.table.renderRows();
   }
 
   eliminar(actor: actorAutoCompleteDto) {
