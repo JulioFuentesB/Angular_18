@@ -3,6 +3,7 @@ import { peliculaCreacionDto, peliculaDto } from '../peliculas';
 import { idText } from 'typescript';
 import { FormularioPeliculasComponent } from "../formulario-peliculas/formulario-peliculas.component";
 import { SelectorMultipleDto } from '../../compartidos/compnentes/SelectorMultipleModelo';
+import { actorAutoCompleteDto } from '../../actores/actores';
 
 @Component({
   selector: 'app-editar-peliculas',
@@ -40,6 +41,10 @@ export class EditarPeliculasComponent implements OnInit {
   ];
 
   pelicula: peliculaDto = { id: 1, titulo: 'Spider-man', trailer: 'Abc', fechaLanzamiento: new Date('2024-07-25'), poster: 'https://upload.wikimedia.org/wikipedia/en/f/f7/Inside_Out_2_poster.jpg?20240514232832' }
+
+  actoresSeleccionados: actorAutoCompleteDto[] = [
+    { id: 2, nombre: 'Tom Hanks', personaje: 'Forrest Gump', foto: 'https://upload.wikimedia.org/wikipedia/commons/thumb/a/a9/Tom_Hanks_TIFF_2019.jpg/220px-Tom_Hanks_TIFF_2019.jpg' },
+  ]
 
   guardarCambios(pelicula: peliculaCreacionDto) {
     console.log('Editando pelicula', pelicula)

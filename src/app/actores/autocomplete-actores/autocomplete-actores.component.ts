@@ -1,5 +1,5 @@
 import { CdkDragDrop, DragDropModule, moveItemInArray } from '@angular/cdk/drag-drop';
-import { Component, ViewChild } from '@angular/core';
+import { Component, Input, ViewChild } from '@angular/core';
 import { ReactiveFormsModule, FormsModule, FormControl } from '@angular/forms';
 import { MatAutocompleteModule, MatAutocompleteSelectedEvent } from '@angular/material/autocomplete';
 import { MatFormFieldModule } from '@angular/material/form-field';
@@ -28,6 +28,7 @@ export class AutocompleteActoresComponent {
     { id: 3, nombre: 'Samuel L. Jackson', personaje: '', foto: 'https://upload.wikimedia.org/wikipedia/commons/thumb/2/29/SamuelLJackson.jpg/250px-SamuelLJackson.jpg' },
   ]
 
+  @Input({required:true})
   actoresSeleccionados: actorAutoCompleteDto[] = [];
 
   columnasAMostrar = ['imagen', 'nombre', 'personaje', 'acciones'];

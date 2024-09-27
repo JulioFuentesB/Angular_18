@@ -4,6 +4,7 @@ import { RouterLink } from '@angular/router';
 import { peliculaCreacionDto } from '../peliculas';
 import { FormularioPeliculasComponent } from "../formulario-peliculas/formulario-peliculas.component";
 import { SelectorMultipleDto } from '../../compartidos/compnentes/SelectorMultipleModelo';
+import { actorAutoCompleteDto } from '../../actores/actores';
 
 @Component({
   selector: 'app-crear-pelicula',
@@ -30,6 +31,9 @@ export class CrearPeliculaComponent {
     { llave: 3, valor: 'Acropolis' },
 
   ];
+
+
+  actoresSeleccionados:actorAutoCompleteDto[]=[];
 
   guardarCambios(pelicula: peliculaCreacionDto) {
     console.log('Creando pelicula', pelicula);
