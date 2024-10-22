@@ -6,6 +6,7 @@ import { provideAnimationsAsync } from '@angular/platform-browser/animations/asy
 import { MAT_FORM_FIELD_DEFAULT_OPTIONS } from '@angular/material/form-field';
 
 import { provideMomentDateAdapter } from '@angular/material-moment-adapter'
+import { provideHttpClient, withFetch } from '@angular/common/http';
 
 export const appConfig: ApplicationConfig = {
   providers: [provideZoneChangeDetection({ eventCoalescing: true })
@@ -23,7 +24,8 @@ export const appConfig: ApplicationConfig = {
       monthYearA11yLabel: 'MMMM YYYY'
 
     }
-  })
+  }),
+  provideHttpClient(withFetch())
 
   ]
 };
