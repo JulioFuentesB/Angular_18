@@ -8,8 +8,8 @@ import { RouterLink } from '@angular/router';
 import { InputImgComponent } from '../../compartidos/componentes/input-img/input-img.component';
 import { peliculaCreacionDto, peliculaDto } from '../peliculas';
 import moment from 'moment';
-import { SelectorMultipleDto } from '../../compartidos/compnentes/SelectorMultipleModelo';
-import { SelectorMultipleComponent } from "../../compartidos/compnentes/selector-multiple/selector-multiple.component";
+import { SelectorMultipleDto } from '../../compartidos/componentes/SelectorMultipleModelo';
+import { SelectorMultipleComponent } from "../../compartidos/componentes/selector-multiple/selector-multiple.component";
 import { AutocompleteActoresComponent } from "../../actores/autocomplete-actores/autocomplete-actores.component";
 import { actorAutoCompleteDto } from '../../actores/actores';
 

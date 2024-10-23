@@ -1,6 +1,6 @@
 import { Component, EventEmitter, inject, Input, OnInit, Output } from '@angular/core';
 import { FormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
-import { PrimeraLetramayuscula } from '../../compartidos/componentes/Funciones/validaciones';
+import { PrimeraLetramayuscula } from '../../compartidos/Funciones/validaciones';
 import { MatButtonModule } from '@angular/material/button';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
@@ -17,23 +17,22 @@ import { InputImgComponent } from "../../compartidos/componentes/input-img/input
 })
 export class FormularioGeneroComponent implements OnInit {
   ngOnInit(): void {
-    if(this.modelo !== undefined)
-    {
+    if (this.modelo !== undefined) {
       this.form.patchValue(this.modelo)
     }
   }
 
-  
-@Input()
-modelo?: GeneroDto;
 
-@Output()
-posteoFormulario= new EventEmitter<GenerosCreacionDto>
+  @Input()
+  modelo?: GeneroDto;
+
+  @Output()
+  posteoFormulario = new EventEmitter<GenerosCreacionDto>
 
   private formBuilder = inject(FormBuilder);
-  
+
   form = this.formBuilder.group({
-    nombre: ['', { validators: [Validators.required, PrimeraLetramayuscula()] }]
+    nombre: ['', { validators: [Validators.required, PrimeraLetramayuscula(), Validators.maxLength(50)] }]
   });
 
   obtenerErrorCampoNombre(): string {
@@ -41,6 +40,10 @@ posteoFormulario= new EventEmitter<GenerosCreacionDto>
 
     if (nombre.hasError('required')) {
       return "El campo nombre es requerido";
+    }
+
+    if (nombre.hasError('maxlength')){
+      return `El campo nombre no puede tener más de ${nombre.getError('maxlength').requiredLength} caracteres`;
     }
 
     if (nombre.hasError('primeraLetraMayuscula')) {
@@ -59,8 +62,8 @@ posteoFormulario= new EventEmitter<GenerosCreacionDto>
       return;
     }
 
-    const genero= this.form.value as GenerosCreacionDto;
-    this.posteoFormulario.emit(genero); 
+    const genero = this.form.value as GenerosCreacionDto;
+    this.posteoFormulario.emit(genero);
   }
 
 }

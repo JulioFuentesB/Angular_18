@@ -1,6 +1,6 @@
 import { Component, EventEmitter, Input, Output, output } from '@angular/core';
 import { MatButtonModule } from '@angular/material/button';
-import { toBase64 } from '../Funciones/toBase64';
+import { toBase64 } from '../../Funciones/toBase64';
 import { StringLiteral } from 'typescript';
 
 @Component({

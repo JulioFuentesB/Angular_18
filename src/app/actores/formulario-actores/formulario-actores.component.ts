@@ -7,7 +7,7 @@ import { MatInput, MatInputModule } from '@angular/material/input';
 import { RouterLink } from '@angular/router';
 import { ActorCreacionDto, ActorDto } from '../actores';
 import moment from 'moment';
-import { fechaNoPuedeSerFutura } from '../../compartidos/componentes/Funciones/validaciones';
+import { fechaNoPuedeSerFutura } from '../../compartidos/Funciones/validaciones';
 import { createSourceMapSource } from 'typescript';
 import { InputImgComponent } from "../../compartidos/componentes/input-img/input-img.component";
 

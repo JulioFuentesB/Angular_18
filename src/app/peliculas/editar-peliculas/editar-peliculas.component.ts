@@ -2,7 +2,7 @@ import { Component, Input, numberAttribute, OnInit } from '@angular/core';
 import { peliculaCreacionDto, peliculaDto } from '../peliculas';
 import { idText } from 'typescript';
 import { FormularioPeliculasComponent } from "../formulario-peliculas/formulario-peliculas.component";
-import { SelectorMultipleDto } from '../../compartidos/compnentes/SelectorMultipleModelo';
+import { SelectorMultipleDto } from '../../compartidos/componentes/SelectorMultipleModelo';
 import { actorAutoCompleteDto } from '../../actores/actores';
 
 @Component({

@@ -3,7 +3,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { RouterLink } from '@angular/router';
 import { peliculaCreacionDto } from '../peliculas';
 import { FormularioPeliculasComponent } from "../formulario-peliculas/formulario-peliculas.component";
-import { SelectorMultipleDto } from '../../compartidos/compnentes/SelectorMultipleModelo';
+import { SelectorMultipleDto } from '../../compartidos/componentes/SelectorMultipleModelo';
 import { actorAutoCompleteDto } from '../../actores/actores';
 
 @Component({
