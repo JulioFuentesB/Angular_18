@@ -8,6 +8,7 @@ import { Router, RouterLink } from '@angular/router';
 import { PrimeraLetramayuscula } from '../../compartidos/componentes/Funciones/validaciones';
 import { FormularioGeneroComponent } from "../formulario-genero/formulario-genero.component";
 import { GenerosCreacionDto } from '../generos';
+import { GenerosService } from '../generos.service';
 
 @Component({
   selector: 'app-crear-generos',
@@ -16,13 +17,20 @@ import { GenerosCreacionDto } from '../generos';
   templateUrl: './crear-generos.component.html',
   styleUrl: './crear-generos.component.css'
 })
+
+
 export class CrearGenerosComponent {
 
-  router = inject(Router);
+  private router = inject(Router);
+  private generosServices = inject(GenerosService);
 
 
-  guardarCambios(genero:GenerosCreacionDto) {
-    console.log('creando genero',genero);
+  guardarCambios(genero: GenerosCreacionDto) {
+    console.log('creando genero', genero);
+
+    this.generosServices.crear(genero).subscribe(() => {
+      this.router.navigate(['/generos']);
+    });
   }
 
 
